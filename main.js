@@ -1,25 +1,37 @@
-function calcularCotizacion() {
-    var marca = document.getElementById("marca").value;
-    var modelo = document.getElementById("modelo").value;
-    var anio = parseInt(document.getElementById("anio").value);
-  
-    var costoBase = 500; // Costo base del seguro
-    var descuento = 0; // Descuento inicial
-  
-    // Verificar si el automóvil es de una marca específica
-    if (marca.toLowerCase() === "chevrolet") {
-      descuento = 50;
+var Comprobante_de_domicilio = false
+let Presenta_alguna_enfermedad = false
+let Informe_Medico = false
+
+function calcularPlan() {
+  var edad = parseInt(prompt("Cual es tu edad?"));
+  console.log("Tu edad es " + edad)
+
+  var domicilio = parseInt(prompt("domicilio 1 o 2?"));
+
+  var enfermedad = parseInt(prompt("enfermedad 3 o 4"));
+
+  var informe = parseInt(prompt("informe 5 o 6"));
+
+  if (domicilio === 1) {
+    while (edad > 15) {
+      if (edad > 60 && informe === 5) {
+        alert("Tu Plan es + Avanzado")
+        break
+      }
+      if (edad >= 15 && edad <= 40 && informe === 5) {
+        alert("Tu plan es Intermedio")
+        break
+      }
+      if (edad >= 10 && edad <= 100 && enfermedad === 3) {
+        alert("Tu plan es Avanzado")
+        break;
+      }
+
     }
-  
-    // Verificar si el automóvil es modelo anterior a 2010
-    if (anio < 2010) {
-      descuento += 100;
-    }
-  
-    var cotizacion = costoBase - descuento;
-  
-    var result = document.getElementById("result");
-    result.innerHTML = "La cotización para el automóvil " + marca + " " + modelo + " del año " + anio + " es: $" + cotizacion;
+  } else {
+    alert("Debe ingresar Domicilio")
   }
-  
-  alert("result")
+}
+
+
+
